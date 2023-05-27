@@ -17,11 +17,10 @@ public class SMenuBar {
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-        JMenu settingsMenu = new JMenu("Settings");
-        menuBar.add(settingsMenu);
 
-        JMenuItem settingsMenuItem = new JMenuItem("Open settings");
-        settingsMenu.add(settingsMenuItem);
+
+     //   JMenuItem settingsMenuItem = new JMenuItem("Open settings");
+      //  settingsMenu.add(settingsMenuItem);
 
         JMenuItem openFolderMenuItem = new JMenuItem("Select song folder");
         fileMenu.add(openFolderMenuItem);
@@ -56,10 +55,10 @@ public class SMenuBar {
             }
         });
 
-        settingsMenuItem.addActionListener(e -> {
-            SettingUI settingsUI = new SettingUI(frame);
-            settingsUI.setVisible(true);
-        });
+     //   settingsMenuItem.addActionListener(e -> {
+        //    SettingUI settingsUI = new SettingUI(frame);
+           //settingsUI.setVisible(true);
+       //});
     }
 
     public JMenuBar getMenuBar() {
