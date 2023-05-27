@@ -1,6 +1,7 @@
 package de.felix.songSync.elements;
 
-import de.felix.songSync.filesaving.FileSaving;
+import de.felix.songSync.file.SSyncFile;
+import de.felix.songSync.util.FileCounter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +10,8 @@ import java.io.IOException;
 
 public class SFolderInfoBar extends JPanel {
 
-    private JLabel folderLabel;
-    private JLabel fileCountLabel;
+    private final JLabel folderLabel;
+    private final JLabel fileCountLabel;
 
     public File folder;
 
@@ -20,7 +21,7 @@ public class SFolderInfoBar extends JPanel {
         fileCountLabel = new JLabel();
         add(folderLabel, BorderLayout.WEST);
         add(fileCountLabel, BorderLayout.EAST);
-        File selectedFolder = FileSaving.loadSettings();
+        File selectedFolder = SSyncFile.loadSettings();
         if (selectedFolder != null) {
             folder = selectedFolder;
             try {
@@ -31,33 +32,21 @@ public class SFolderInfoBar extends JPanel {
         }
     }
 
-
-    public void setFolder(File folder) throws IOException {
-        this.folder = folder;
-        folderLabel.setText("\uD83D\uDCC1 " + folder.getCanonicalPath());
-        fileCountLabel.setText("Number of files: " + countFiles(folder));
-        FileSaving.saveSettings(folder);
+    public void setFolder(final File folder) throws IOException {
+        updateFolderInfo(folder);
+        SSyncFile.saveSettings(folder);
     }
 
     public void refresh(final File file) throws IOException {
-        this.folder = file;
-        folderLabel.setText("\uD83D\uDCC1 " + folder.getCanonicalPath());
-        fileCountLabel.setText("Number of files: " + countFiles(folder));
-        FileSaving.saveSettings(folder);
+        updateFolderInfo(file);
+        SSyncFile.saveSettings(folder);
     }
 
-    private int countFiles(File folder) {
-        File[] files = folder.listFiles();
-        if (files == null) {
-            return 0;
-        }
-
-        int count = 0;
-        for (File file : files) {
-            if (file.isFile()) {
-                count++;
-            }
-        }
-        return count;
+    private void updateFolderInfo(final File folder) {
+        this.folder = folder;
+        SwingUtilities.invokeLater(() -> {
+            folderLabel.setText("\uD83D\uDCC1 " + folder.getAbsolutePath());
+            fileCountLabel.setText("Number of files: " + FileCounter.countFiles(folder));
+        });
     }
 }

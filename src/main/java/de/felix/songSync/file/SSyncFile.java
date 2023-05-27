@@ -1,4 +1,4 @@
-package de.felix.songSync.filesaving;
+package de.felix.songSync.file;
 
 import lombok.experimental.UtilityClass;
 
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 @UtilityClass
-public class FileSaving {
+public class SSyncFile {
 
     public void saveSettings(File selectedFolder) {
         Properties properties = new Properties();

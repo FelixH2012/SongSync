@@ -8,9 +8,9 @@ import java.nio.file.Path;
 @Getter
 public class URL {
 
-    private String url;
+    private final String url;
 
-    private Path outputPath;
+    private final Path outputPath;
 
     public URL(String url, Path outputPath) {
         this.url = url;

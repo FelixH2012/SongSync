@@ -1,12 +1,9 @@
 package de.felix.songSync.ffmpeg;
 
-
-import de.felix.songSync.SongSync;
 import lombok.experimental.UtilityClass;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 @UtilityClass
 public class FFMPEGLoudness {

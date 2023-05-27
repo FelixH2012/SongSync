@@ -18,15 +18,15 @@ public class SongSync {
     }
 
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("SongSync");
+        final JFrame frame = new JFrame("SongSync");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        SMenuBar menuBar = new SMenuBar(frame);
+        final SMenuBar menuBar = new SMenuBar(frame);
         frame.setJMenuBar(menuBar.getMenuBar());
 
-        SLinksList linksList = new SLinksList();
-        JScrollPane linksListScrollPane = linksList.getLinksListScrollPane();
+        final SLinksList linksList = new SLinksList();
+        final JScrollPane linksListScrollPane = linksList.getLinksListScrollPane();
 
         sFolderInfoBar = new SFolderInfoBar();
 

@@ -16,15 +16,15 @@ public class SettingUI extends JDialog {
         setLocationRelativeTo(parent);
         setResizable(false);
 
-        JPanel settingsPanel = new JPanel();
-        JLabel settingsLabel = new JLabel("General");
+        final JPanel settingsPanel = new JPanel();
+        final JLabel settingsLabel = new JLabel("General");
         settingsPanel.add(settingsLabel);
 
-        JPanel settingsSubPanel = new JPanel();
+        final JPanel settingsSubPanel = new JPanel();
         settingsSubPanel.setLayout(new BoxLayout(settingsSubPanel, BoxLayout.Y_AXIS));
 
-        JPanel checkBoxPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JCheckBox songsCheckbox = new JCheckBox("Mix songs to same loudness");
+        final JPanel checkBoxPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        final JCheckBox songsCheckbox = new JCheckBox("Mix songs to same loudness");
         checkBoxPanel.add(songsCheckbox);
         settingsSubPanel.add(checkBoxPanel);
 

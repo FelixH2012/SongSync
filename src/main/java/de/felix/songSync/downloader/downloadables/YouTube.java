@@ -1,6 +1,5 @@
 package de.felix.songSync.downloader.downloadables;
 
-import de.felix.songSync.SongSync;
 import de.felix.songSync.downloader.ILoader;
 import de.felix.songSync.ffmpeg.FFMPEGLoudness;
 import de.felix.songSync.storage.URL;
@@ -11,7 +10,6 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
