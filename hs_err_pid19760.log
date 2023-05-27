@@ -18,7 +18,7 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:56980,suspend=y,server=n -javaagent:C:\Users\Felix\AppData\Local\JetBrains\IdeaIC2022.3\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 de.felix.youstick.Main
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:56980,suspend=y,server=n -javaagent:C:\Users\Felix\AppData\Local\JetBrains\IdeaIC2022.3\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 de.felix.songSync.Main
 
 Host: AMD Ryzen 5 3600 6-Core Processor              , 12 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.1635)
 Time: Sat May 27 01:19:57 2023 GMT Summer Time elapsed time: 0.288816 seconds (0d 0h 0m 0s)
@@ -33,9 +33,9 @@ C  [jdwp.dll+0x26c84]
 
 Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
 j  org.lwjgl.glfw.GLFW.glfwInit()Z+0
-j  de.felix.youstick.Main.init()V+0
-j  de.felix.youstick.Main.run()V+1
-j  de.felix.youstick.Main.main([Ljava/lang/String;)V+7
+j  de.felix.songSync.Main.init()V+0
+j  de.felix.songSync.Main.run()V+1
+j  de.felix.songSync.Main.main([Ljava/lang/String;)V+7
 v  ~StubRoutines::call_stub 0x000001e3e9ac100e
 
 siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0xffffffffffffffff
@@ -611,7 +611,7 @@ symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Us
 
 VM Arguments:
 jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:56980,suspend=y,server=n -javaagent:C:\Users\Felix\AppData\Local\JetBrains\IdeaIC2022.3\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
-java_command: de.felix.youstick.Main
+java_command: de.felix.songSync.Main
 java_class_path (initial): C:\Users\Felix\Documents\YouStick\target\classes;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-opengl\3.3.1\lwjgl-opengl-3.3.1.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl\3.3.1\lwjgl-3.3.1.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-nanovg\3.3.1\lwjgl-nanovg-3.3.1.jar;C:\Users\Felix\.m2\repository\com\github\sapher\youtubedl-java\1.1\youtubedl-java-1.1.jar;C:\Users\Felix\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\Felix\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Felix\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.7.4\jackson-annotations-2.7.4.jar;C:\Users\Felix\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.7.4\jackson-databind-2.7.4.jar;C:\Users\Felix\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.7.4\jackson-core-2.7.4.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl\3.3.1\lwjgl-3.3.1-natives-windows.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-glfw\3.3.1\lwjgl-glfw-3.3.1.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-glfw\3.3.1\lwjgl-glfw-3.3.1-natives-windows.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-glfw\3.3.1\lwjgl-glfw-3.3.1-natives-linux.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-glfw\3.3.1\lwjgl-glfw-3.3.1-natives-macos.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-opengl\3.3.1\lwjgl-opengl-3.3.1-natives-windows.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-opengl\3.3.1\lwjgl-opengl-3.3.1-natives-linux.jar;C:\Users\Felix\.m2\repository\org\lwjgl\lwjgl-opengl\3.3.1\lwjgl-opengl-3.3.1-natives-macos.jar;C:\IntelliJ IDEA Community Edition 2022.3.2\lib\idea_rt.jar
 Launcher Type: SUN_STANDARD
 

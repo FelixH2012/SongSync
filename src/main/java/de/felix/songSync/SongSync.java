@@ -1,17 +1,16 @@
-package de.felix.youstick;
+package de.felix.songSync;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import de.felix.youstick.elements.SLinksList;
-import de.felix.youstick.elements.SMenuBar;
-import de.felix.youstick.setting.SettingUI;
+import de.felix.songSync.elements.SFolderInfoBar;
+import de.felix.songSync.elements.SLinksList;
+import de.felix.songSync.elements.SMenuBar;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SongSync {
+
+    public static SFolderInfoBar sFolderInfoBar;
 
     public static void main(String[] args) {
         FlatMacDarkLaf.setup();
@@ -29,9 +28,12 @@ public class SongSync {
         SLinksList linksList = new SLinksList();
         JScrollPane linksListScrollPane = linksList.getLinksListScrollPane();
 
+        sFolderInfoBar = new SFolderInfoBar();
+
         frame.add(linksList.getTopPanel(), BorderLayout.NORTH);
         frame.add(linksListScrollPane, BorderLayout.CENTER);
 
+        frame.add(sFolderInfoBar, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
 }

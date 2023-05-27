@@ -1,7 +1,6 @@
-package de.felix.youstick.setting;
+package de.felix.songSync.setting;
 
-import javax.swing.*;
-import java.awt.*;
+import de.felix.songSync.data.ChangeLoudness;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,6 +29,8 @@ public class SettingUI extends JDialog {
         JCheckBox songsCheckbox = new JCheckBox("Mix songs to same loudness");
         checkBoxPanel.add(songsCheckbox);
         settingsSubPanel.add(checkBoxPanel);
+
+        songsCheckbox.addActionListener(e -> ChangeLoudness.canChangeLoudness = songsCheckbox.isSelected());
 
         tabbedPane.addTab("General", settingsPanel);
         tabbedPane.addTab("Songs", settingsSubPanel);

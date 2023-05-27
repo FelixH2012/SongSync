@@ -1,9 +1,12 @@
-package de.felix.youstick.elements;
+package de.felix.songSync.elements;
 
-import de.felix.youstick.setting.SettingUI;
+import de.felix.songSync.SongSync;
+import de.felix.songSync.setting.SettingUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 public class SMenuBar {
     private JMenuBar menuBar;
@@ -22,6 +25,21 @@ public class SMenuBar {
 
         JMenuItem openFolderMenuItem = new JMenuItem("Select song folder");
         fileMenu.add(openFolderMenuItem);
+
+        JMenuItem openFolder = new JMenuItem("Open Song Folder");
+
+        fileMenu.add(openFolder);
+
+        openFolder.addActionListener(e -> {
+            if (SongSync.sFolderInfoBar.folder.exists()) {
+                try {
+                    Desktop.getDesktop().browse(SongSync.sFolderInfoBar.folder.toURI());
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
         openFolderMenuItem.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -30,7 +48,11 @@ public class SMenuBar {
 
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFolder = fileChooser.getSelectedFile();
-                System.out.println("Ausgewählter Ordner: " + selectedFolder.getAbsolutePath());
+                try {
+                    SongSync.sFolderInfoBar.setFolder(selectedFolder);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 

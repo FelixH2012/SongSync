@@ -1,6 +1,6 @@
-package de.felix.youstick.downloader;
+package de.felix.songSync.downloader;
 
-import de.felix.youstick.storage.URL;
+import de.felix.songSync.storage.URL;
 import lombok.Getter;
 
 @Getter

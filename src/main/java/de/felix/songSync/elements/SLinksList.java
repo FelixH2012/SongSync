@@ -1,7 +1,11 @@
-package de.felix.youstick.elements;
+package de.felix.songSync.elements;
+
+import de.felix.songSync.SongSync;
+import de.felix.songSync.downloader.downloadables.YouTube;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class SLinksList {
     private JTextArea linksBar;
@@ -24,7 +28,7 @@ public class SLinksList {
 
     private void createLinksList() {
         linksListPanel = new JPanel();
-        linksListPanel.setLayout(new BoxLayout(linksListPanel, BoxLayout.Y_AXIS));
+        linksListPanel.setLayout(new GridBagLayout());
         linksListScrollPane = new JScrollPane(linksListPanel);
     }
 
@@ -50,11 +54,31 @@ public class SLinksList {
                 };
                 linkLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
                 JButton downloadButton = new JButton("Download");
-                downloadButton.addActionListener(downloadEvent -> System.out.println("Download-Button geklickt für: " + link));
+                downloadButton.addActionListener(downloadEvent -> {
+
+                    final YouTube youTube = new YouTube(link, SongSync.sFolderInfoBar.folder);
+                    youTube.download();
+
+                    try {
+                        SongSync.sFolderInfoBar.refresh(SongSync.sFolderInfoBar.folder);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                });
 
                 linkPanel.add(linkLabel, BorderLayout.CENTER);
                 linkPanel.add(downloadButton, BorderLayout.EAST);
-                linksListPanel.add(linkPanel);
+                GridBagConstraints gridBagConstraints = new GridBagConstraints();
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+                gridBagConstraints.anchor = GridBagConstraints.NORTH;
+                gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+                gridBagConstraints.weightx = 1;
+                gridBagConstraints.weighty = 0;
+                gridBagConstraints.insets = new Insets(0, 0, 5, 0);
+
+                linksListPanel.add(linkPanel, gridBagConstraints);
                 linksListPanel.revalidate();
                 linksListPanel.repaint();
             }

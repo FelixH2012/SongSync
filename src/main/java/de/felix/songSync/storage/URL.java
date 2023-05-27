@@ -1,4 +1,4 @@
-package de.felix.youstick.storage;
+package de.felix.songSync.storage;
 
 import java.nio.file.Path;
 
