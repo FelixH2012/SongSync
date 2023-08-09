@@ -46,7 +46,11 @@ public class SFolderInfoBar extends JPanel {
         this.folder = folder;
         SwingUtilities.invokeLater(() -> {
             folderLabel.setText("\uD83D\uDCC1 " + folder.getAbsolutePath());
-            fileCountLabel.setText("Number of files: " + FileCounter.countFiles(folder));
+            try {
+                fileCountLabel.setText("Number of files: " + FileCounter.countFiles(folder));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 }

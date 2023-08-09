@@ -10,6 +10,9 @@ import java.awt.*;
 
 public class SongSync {
 
+    private static final int INITIAL_WIDTH = 600;
+    private static final int INITIAL_HEIGHT = 400;
+
     public static SFolderInfoBar sFolderInfoBar;
 
     public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class SongSync {
     private static void createAndShowGUI() {
         final JFrame frame = new JFrame("SongSync");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(INITIAL_WIDTH, INITIAL_HEIGHT);
 
         final SMenuBar menuBar = new SMenuBar(frame);
         frame.setJMenuBar(menuBar.getMenuBar());
