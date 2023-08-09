@@ -62,7 +62,7 @@ public class YouTube extends ILoader {
             Path fileName = filePath.getFileName();
             String songName = fileName.toString();
 
-            if (!process.isAlive())
+            if (!process.isAlive()) //todo find a better way for this autism
                 FFMPEGLoudness.changeLoudnessFromFile(new File(downloadPath), new File(getUrl().getOutputPath() + "/" + songName));
 
         } catch (IOException e) {
