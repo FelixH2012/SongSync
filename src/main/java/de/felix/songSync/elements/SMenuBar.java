@@ -14,18 +14,13 @@ public class SMenuBar {
     public SMenuBar(JFrame frame) {
         menuBar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("File");
+        final JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-
-
-     //   JMenuItem settingsMenuItem = new JMenuItem("Open settings");
-      //  settingsMenu.add(settingsMenuItem);
-
-        JMenuItem openFolderMenuItem = new JMenuItem("Select song folder");
+        final JMenuItem openFolderMenuItem = new JMenuItem("Select song folder");
         fileMenu.add(openFolderMenuItem);
 
-        JMenuItem openFolder = new JMenuItem("Open Song Folder");
+        final JMenuItem openFolder = new JMenuItem("Open Song Folder");
 
         fileMenu.add(openFolder);
 
@@ -43,7 +38,7 @@ public class SMenuBar {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
-            int returnValue = fileChooser.showOpenDialog(frame);
+            final int returnValue = fileChooser.showOpenDialog(frame);
 
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFolder = fileChooser.getSelectedFile();
@@ -54,11 +49,6 @@ public class SMenuBar {
                 }
             }
         });
-
-     //   settingsMenuItem.addActionListener(e -> {
-        //    SettingUI settingsUI = new SettingUI(frame);
-           //settingsUI.setVisible(true);
-       //});
     }
 
     public JMenuBar getMenuBar() {

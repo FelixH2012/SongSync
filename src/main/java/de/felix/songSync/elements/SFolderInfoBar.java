@@ -45,6 +45,7 @@ public class SFolderInfoBar extends JPanel {
     private void updateFolderInfo(final File folder) {
         this.folder = folder;
         SwingUtilities.invokeLater(() -> {
+            //Unicode char for the folder icon, thanks java that ur supporting this.
             folderLabel.setText("\uD83D\uDCC1 " + folder.getAbsolutePath());
             try {
                 fileCountLabel.setText("Number of files: " + FileCounter.countFiles(folder));

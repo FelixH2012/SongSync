@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.nio.file.Path;
 
-
+//Record ?
 @Getter
 public class URL {
 

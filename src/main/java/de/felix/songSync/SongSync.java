@@ -13,6 +13,8 @@ public class SongSync {
     private static final int INITIAL_WIDTH = 600;
     private static final int INITIAL_HEIGHT = 400;
 
+    public static final boolean debug = false;
+
     public static SFolderInfoBar sFolderInfoBar;
 
     public static void main(String[] args) {
