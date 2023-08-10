@@ -4,6 +4,8 @@ import de.felix.songSync.downloader.ILoader;
 import de.felix.songSync.downloader.Quality;
 import de.felix.songSync.ffmpeg.FFMPEGLoudness;
 import de.felix.songSync.storage.URL;
+import de.felix.songSync.util.finder.collection.YtDlpFinder;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +24,13 @@ public class YouTube extends ILoader {
     @Override
     public void download() {
         String youtubeVideoUrl = getUrl().getUrl();
-        String youtubeDlPath = "src/main/executables/yt-dlp.exe";
+
+        String youtubeDlPath;
+
+        if (YtDlpFinder.searchExeFile() != null)
+            youtubeDlPath = YtDlpFinder.searchExeFile().toAbsolutePath().toString();
+        else
+            youtubeDlPath = "src/main/executables/yt-dlp.exe";
 
         try {
             final Quality quality = Quality.HIGHEST;
