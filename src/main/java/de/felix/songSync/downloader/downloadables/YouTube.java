@@ -1,6 +1,7 @@
 package de.felix.songSync.downloader.downloadables;
 
 import de.felix.songSync.downloader.ILoader;
+import de.felix.songSync.downloader.Quality;
 import de.felix.songSync.ffmpeg.FFMPEGLoudness;
 import de.felix.songSync.storage.URL;
 import java.io.BufferedReader;
@@ -24,9 +25,10 @@ public class YouTube extends ILoader {
         String youtubeDlPath = "src/main/executables/yt-dlp.exe";
 
         try {
+            final Quality quality = Quality.HIGHEST;
             Path tempDirectory = Files.createTempDirectory("song-cache");
             String tempOutputPath = tempDirectory.toString() + "/%(title)s.%(ext)s";
-            ProcessBuilder pb = new ProcessBuilder(youtubeDlPath, "--verbose", "--extract-audio", "--audio-format", "mp3", "mp3", youtubeVideoUrl, "-o", tempOutputPath);
+            ProcessBuilder pb = new ProcessBuilder(youtubeDlPath, "--verbose", "--extract-audio", "--audio-format", "mp3", "--audio-codec", quality.name(), youtubeVideoUrl, "-o", tempOutputPath);
 
             BufferedReader stdoutReader;
             Process process = pb.start();

@@ -13,5 +13,4 @@ public abstract class ILoader {
     }
 
     protected abstract void download();
-
 }
