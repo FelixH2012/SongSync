@@ -21,14 +21,16 @@ public class YouTube extends ILoader {
         super(new URL(url, file.toPath()));
     }
 
+    private final YtDlpFinder ytDlpFinder = new YtDlpFinder();
+
     @Override
     public void download() {
         String youtubeVideoUrl = getUrl().getUrl();
 
         String youtubeDlPath;
 
-        if (YtDlpFinder.searchExeFile() != null) {
-            youtubeDlPath = YtDlpFinder.searchExeFile().toAbsolutePath().toString();
+        if (ytDlpFinder.getPathForApplication() != null) {
+            youtubeDlPath = ytDlpFinder.getPathForApplication().toAbsolutePath().toString();
             System.out.println("Found YT-DLP on PC.");
         } else {
             //Todo download yt-dlp exe from server

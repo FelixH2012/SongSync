@@ -1,5 +1,6 @@
 package de.felix.songSync.util.finder.collection;
 
+import de.felix.songSync.util.finder.AFinder;
 import de.felix.songSync.util.finder.Finder;
 
 import java.io.IOException;
@@ -7,9 +8,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FFMPEGFinder {
-
-    public static Path searchExeFile() {
+public class FFMPEGFinder extends AFinder {
+    @Override
+    public Path getPathForApplication() {
         Path filePath = null;
         try {
             final Path startPath = Paths.get("C:/");
@@ -24,5 +25,4 @@ public class FFMPEGFinder {
         }
         return filePath;
     }
-
 }
