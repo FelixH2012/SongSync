@@ -27,11 +27,14 @@ public class YouTube extends ILoader {
 
         String youtubeDlPath;
 
-        if (YtDlpFinder.searchExeFile() != null)
+        if (YtDlpFinder.searchExeFile() != null) {
             youtubeDlPath = YtDlpFinder.searchExeFile().toAbsolutePath().toString();
-        else
+            System.out.println("Found YT-DLP on PC.");
+        } else {
+            //Todo download yt-dlp exe from server
+            System.out.println("Could not find YT-DLP on Pc, downloading.");
             youtubeDlPath = "src/main/executables/yt-dlp.exe";
-
+        }
         try {
             final Quality quality = Quality.HIGHEST;
             Path tempDirectory = Files.createTempDirectory("song-cache");

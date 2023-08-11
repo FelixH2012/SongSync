@@ -1,6 +1,8 @@
 package de.felix.songSync.ffmpeg;
 
 import de.felix.songSync.SongSync;
+import de.felix.songSync.util.finder.collection.FFMPEGFinder;
+import de.felix.songSync.util.finder.collection.YtDlpFinder;
 import lombok.experimental.UtilityClass;
 
 import java.io.File;
@@ -13,8 +15,16 @@ public class FFMPEGLoudness {
         if (input.exists() && input.isAbsolute()) {
             if (SongSync.debug)
                 System.out.println("Input: " + input);
-            final String ffmpegPath = "src/main/executables/ffmpeg.exe"; //probably not the best way, you should first search for a ffmpeg application on the pc
-            //Then, if nothing has been found, proceed to download the ffmpeg exe, so the program is not taking space without any reason //todo
+            String ffmpegPath;
+
+            if (FFMPEGFinder.searchExeFile() != null) {
+                ffmpegPath = FFMPEGFinder.searchExeFile().toAbsolutePath().toString();
+                System.out.println("Found FFMPEG on PC.");
+            } else {
+                //Todo download ffmpeg exe from server
+                System.out.println("Could not find FFMPEG on Pc, downloading.");
+                ffmpegPath = "src/main/executables/ffmpeg.exe";
+            }
             ProcessBuilder processBuilder = new ProcessBuilder(ffmpegPath, "-y", "-i", input.getAbsolutePath(), "-filter:a", "volume=" + 1 + "dB", output.getAbsolutePath());
             processBuilder.inheritIO();
             try {
