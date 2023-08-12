@@ -23,7 +23,7 @@ public class SFolderInfoBar extends JPanel {
         fileCountLabel = new JLabel();
         add(folderLabel, BorderLayout.WEST);
         add(fileCountLabel, BorderLayout.EAST);
-        File selectedFolder = SSyncFile.loadSettings();
+        final File selectedFolder = SSyncFile.loadSettings();
         if (selectedFolder != null) {
             folder = selectedFolder;
             try {

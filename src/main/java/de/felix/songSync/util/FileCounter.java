@@ -10,9 +10,8 @@ import java.util.stream.Stream;
 
 @UtilityClass
 public class FileCounter {
-
     public int countFiles(File folder) throws IOException {
-        try (Stream<Path> files = Files.list(folder.toPath())) {
+        try (final Stream<Path> files = Files.list(folder.toPath())) {
             return (int) files.filter(Files::isRegularFile).count();
         }
     }

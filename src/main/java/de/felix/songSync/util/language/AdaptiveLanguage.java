@@ -8,9 +8,9 @@ import java.util.Locale;
  * Changes the language from the program to the language of the system.
  */
 
+@Getter
 public class AdaptiveLanguage {
 
-    @Getter
     private final LanguageManager languageManager;
 
     public AdaptiveLanguage() {

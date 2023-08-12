@@ -42,7 +42,7 @@ public class SMenuBar {
             final int returnValue = fileChooser.showOpenDialog(frame);
 
             if (returnValue == JFileChooser.APPROVE_OPTION) {
-                File selectedFolder = fileChooser.getSelectedFile();
+                final File selectedFolder = fileChooser.getSelectedFile();
                 try {
                     SongSync.sFolderInfoBar.setFolder(selectedFolder);
                 } catch (IOException ex) {

@@ -69,7 +69,7 @@ public class YouTube extends ILoader {
         String stdoutLine;
         final Pattern progressPattern = Pattern.compile("\\d+\\.\\d+%");
         Matcher progressMatcher;
-        Pattern pathPattern = Pattern.compile("\\[ExtractAudio\\] Destination: (.+)");
+        Pattern pathPattern = Pattern.compile("\\[ExtractAudio] Destination: (.+)");
         Matcher pathMatcher;
         while ((stdoutLine = stdoutReader.readLine()) != null) {
             progressMatcher = progressPattern.matcher(stdoutLine);
@@ -85,7 +85,6 @@ public class YouTube extends ILoader {
                 System.out.println(stdoutLine);
             }
         }
-
         final Path filePath = Paths.get(downloadPath);
         final Path fileName = filePath.getFileName();
         songName = fileName.toString();
