@@ -1,5 +1,6 @@
 package de.felix.songSync.elements;
 
+import de.felix.songSync.SongSync;
 import de.felix.songSync.file.SSyncFile;
 import de.felix.songSync.util.FileCounter;
 
@@ -48,7 +49,7 @@ public class SFolderInfoBar extends JPanel {
             //Unicode char for the folder icon, thanks java that ur supporting this.
             folderLabel.setText("\uD83D\uDCC1 " + folder.getAbsolutePath());
             try {
-                fileCountLabel.setText("Number of files: " + FileCounter.countFiles(folder));
+                fileCountLabel.setText(SongSync.adaptiveLanguage.getLanguageManager().getMessage("numOfFiles") + FileCounter.countFiles(folder));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -53,7 +53,7 @@ public class SLinksList {
                     }
                 };
                 linkLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-                JButton downloadButton = new JButton("Download");
+                JButton downloadButton = new JButton(SongSync.adaptiveLanguage.getLanguageManager().getMessage("download"));
                 downloadButton.addActionListener(downloadEvent -> {
 
                     final YouTube youTube = new YouTube(link, SongSync.sFolderInfoBar.folder);

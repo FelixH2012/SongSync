@@ -14,13 +14,13 @@ public class SMenuBar {
     public SMenuBar(JFrame frame) {
         menuBar = new JMenuBar();
 
-        final JMenu fileMenu = new JMenu("File");
+        final JMenu fileMenu = new JMenu(SongSync.adaptiveLanguage.getLanguageManager().getMessage("file"));
         menuBar.add(fileMenu);
 
-        final JMenuItem openFolderMenuItem = new JMenuItem("Select song folder");
+        final JMenuItem openFolderMenuItem = new JMenuItem(SongSync.adaptiveLanguage.getLanguageManager().getMessage("songFolder"));
         fileMenu.add(openFolderMenuItem);
 
-        final JMenuItem openFolder = new JMenuItem("Open Song Folder");
+        final JMenuItem openFolder = new JMenuItem(SongSync.adaptiveLanguage.getLanguageManager().getMessage("openSongFolder"));
 
         fileMenu.add(openFolder);
 

@@ -4,6 +4,7 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import de.felix.songSync.elements.SFolderInfoBar;
 import de.felix.songSync.elements.SLinksList;
 import de.felix.songSync.elements.SMenuBar;
+import de.felix.songSync.util.language.AdaptiveLanguage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -24,6 +25,8 @@ public class SongSync {
 
     public static SFolderInfoBar sFolderInfoBar;
 
+    public static AdaptiveLanguage adaptiveLanguage;
+
     public static void main(String[] args) {
         FlatMacDarkLaf.setup();
         SwingUtilities.invokeLater(SongSync::createAndShowGUI);
@@ -33,6 +36,8 @@ public class SongSync {
         final JFrame frame = new JFrame("SongSync");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(INITIAL_WIDTH, INITIAL_HEIGHT);
+
+        adaptiveLanguage = new AdaptiveLanguage();
 
         final InputStream imgURL = SongSync.class.getResourceAsStream(ICON_LOCATION);
 
