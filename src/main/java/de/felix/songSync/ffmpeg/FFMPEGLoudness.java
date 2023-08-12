@@ -37,7 +37,7 @@ public class FFMPEGLoudness {
             try {
                 final Process process = processBuilder.start();
                 final int exitCode = process.waitFor();
-                System.out.println("Exit code: " + exitCode);
+                System.err.println("Exit code: " + exitCode);
             } catch (IOException | InterruptedException e) {
                 throw new RuntimeException(e);
             }

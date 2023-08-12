@@ -71,8 +71,6 @@ public class YouTube extends ILoader {
         Matcher progressMatcher;
         Pattern pathPattern = Pattern.compile("\\[ExtractAudio\\] Destination: (.+)");
         Matcher pathMatcher;
-
-
         while ((stdoutLine = stdoutReader.readLine()) != null) {
             progressMatcher = progressPattern.matcher(stdoutLine);
             pathMatcher = pathPattern.matcher(stdoutLine);

@@ -15,6 +15,7 @@ public class SFolderInfoBar extends JPanel {
     private final JLabel fileCountLabel;
 
     public File folder;
+    private static final String UNICODE_ICON_CODEPOINT = "\uD83D\uDCC1";
 
     public SFolderInfoBar() {
         setLayout(new BorderLayout());
@@ -47,7 +48,7 @@ public class SFolderInfoBar extends JPanel {
         this.folder = folder;
         SwingUtilities.invokeLater(() -> {
             //Unicode char for the folder icon, thanks java that ur supporting this.
-            folderLabel.setText("\uD83D\uDCC1 " + folder.getAbsolutePath());
+            folderLabel.setText(UNICODE_ICON_CODEPOINT + " " + folder.getAbsolutePath());
             try {
                 fileCountLabel.setText(SongSync.adaptiveLanguage.getLanguageManager().getMessage("numOfFiles") + FileCounter.countFiles(folder));
             } catch (IOException e) {

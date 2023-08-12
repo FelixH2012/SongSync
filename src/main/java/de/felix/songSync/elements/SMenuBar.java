@@ -1,15 +1,16 @@
 package de.felix.songSync.elements;
 
 import de.felix.songSync.SongSync;
-import de.felix.songSync.setting.SettingUI;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+@Getter
 public class SMenuBar {
-    private JMenuBar menuBar;
+    private final JMenuBar menuBar;
 
     public SMenuBar(JFrame frame) {
         menuBar = new JMenuBar();
@@ -49,9 +50,5 @@ public class SMenuBar {
                 }
             }
         });
-    }
-
-    public JMenuBar getMenuBar() {
-        return menuBar;
     }
 }
